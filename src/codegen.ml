@@ -995,7 +995,7 @@ let translate prgm except =   (* note this whole thing only takes two things: gl
       let dyns_list =   (* redundant list where every bind is dynamic *)
           List.map dynify binds
       in
-      let binds = if dynify_all then let () = tstp "dynifying all vars" in List.sort_uniq Pervasives.compare (binds @ dyns_list) else binds
+      let binds = if dynify_all then let () = tstp "dynifying all vars" in List.sort_uniq Stdlib.compare (binds @ dyns_list) else binds
       in   (* now binds has a dyn() version of each variable *)
       let prettyname_of_bind bind = (name_of_bind bind) ^ "_" ^ (string_of_typ (type_of_bind bind))
       in

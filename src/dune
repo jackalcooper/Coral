@@ -1,0 +1,12 @@
+
+(env
+  (dev
+    (flags (:standard -warn-error -A))))
+(ocamllex (modules scanner))
+(menhir
+  (modules parser))
+
+(executable
+ (name coral)
+ (libraries llvm llvm.analysis unix)
+)
